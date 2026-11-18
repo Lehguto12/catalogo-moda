@@ -1,0 +1,9 @@
+ID,Nome,Categoria,Tipo,Preço,Preço_Promocional,Imagem_URL,Descrição,Tamanhos,Disponiveis,Ultimas_Unidades,Destaque,Ativo
+1,Camiseta Básica Algodão,Feminino,camiseta,"59,90",,img/camiseta1.jpg|img/camiseta2.jpg,"Algodão macio, caimento reto.","P,M,G,GG","M,G",NÃO,SIM,SIM
+2,Calça Jeans Reta,Feminino,calça,"139,90","119,90",,"Jeans com elastano e cintura alta.","36,38,40,42,44","38,40",SIM,NÃO,SIM
+3,Vestido Midi Linho,Feminino,vestido,"189,90",,,"Vestido midi leve para o dia a dia.","P,M,G","P,M,G",NÃO,SIM,SIM
+4,Camisa Social Slim,Masculino,camisa,"129,90",,,"Manga longa, tecido que amassa pouco.","P,M,G,GG","P,M,G,GG",NÃO,NÃO,SIM
+5,Bermuda Sarja,Masculino,bermuda,"99,90","89,90",,"Sarja com bolsos laterais.","38,40,42,44","",NÃO,NÃO,SIM
+6,Jaqueta Corta-Vento,Masculino,jaqueta,"219,90",,,"Leve, com capuz e bolso interno.","M,G,GG","GG",SIM,NÃO,SIM
+7,Conjunto Infantil Moletom,Infantil,conjunto,"109,90",,,"Blusa e calça de moletom macio.","2,4,6,8","4,6",NÃO,NÃO,SIM
+8,Short Saia Alfaiataria,Feminino,short,"89,90",,,"Short saia com cós largo.","P,M,G","P,M",NÃO,NÃO,NÃO

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex"> <!-- o carrinho é pessoal: não faz sentido no Google -->
+  <title>Carrinho</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo">
+    <a href="index.html" class="logo" id="nomeLoja"></a>
+    <a href="carrinho.html" class="carrinho" aria-label="Ver carrinho">Carrinho <span id="contadorCarrinho">0</span></a>
+  </header>
+
+  <main class="container" id="conteudo" tabindex="-1">
+    <noscript><p class="mensagem">Este catálogo precisa do JavaScript ativado para funcionar.</p></noscript>
+    <a class="voltar" href="index.html">Voltar ao catálogo</a>
+    <h1 class="carrinho-titulo" id="tituloCarrinho" tabindex="-1">Seu carrinho</h1>
+    <section id="carrinho"></section>
+    <!-- Região invisível: leitores de tela anunciam aqui o que mudou (quantidade, remoção) -->
+    <p id="statusCarrinho" class="sr-only" role="status"></p>
+  </main>
+
+  <footer class="rodape"><p id="aviso"></p></footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+  <script>iniciarCarrinho();</script>
+</body>
+</html>

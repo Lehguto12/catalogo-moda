@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Descrição que aparece no Google e ao compartilhar o link. Troque por loja. -->
+  <meta name="description" content="Catálogo online: veja os produtos, escolha o tamanho e faça o pedido pelo WhatsApp.">
+  <title>Catálogo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo">
+    <a href="index.html" class="logo" id="nomeLoja"></a>
+    <a href="carrinho.html" class="carrinho" aria-label="Ver carrinho">Carrinho <span id="contadorCarrinho">0</span></a>
+  </header>
+
+  <main class="container" id="conteudo" tabindex="-1">
+    <noscript><p class="mensagem">Este catálogo precisa do JavaScript ativado para funcionar.</p></noscript>
+    <p class="slogan" id="slogan"></p>
+    <div class="filtros">
+      <input type="search" id="busca" placeholder="Buscar produto" aria-label="Buscar produto">
+      <div class="chips" id="chipsCategoria" role="group" aria-label="Categoria"></div>
+      <div class="chips" id="chipsTipo" role="group" aria-label="Tipo de peça"></div>
+    </div>
+    <!-- Leitores de tela anunciam só a contagem, não a lista inteira, a cada filtro -->
+    <p id="statusVitrine" class="sr-only" role="status"></p>
+    <section id="vitrine" class="grid"></section>
+  </main>
+
+  <footer class="rodape"><p id="aviso"></p></footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+  <script>iniciarVitrine();</script>
+</body>
+</html>

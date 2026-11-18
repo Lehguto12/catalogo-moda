@@ -1,0 +1,134 @@
+:root{--fundo:#f4f5f3;--texto:#1f2a37;--principal:#1f2a37;--destaque:#2f6f5e;--cinza:#5f6672;--linha:#dfe2dd;--raio:10px}
+*{box-sizing:border-box;margin:0}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--fundo);color:var(--texto);line-height:1.5}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--destaque);outline-offset:2px}
+
+.topo{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:var(--fundo);border-bottom:1px solid var(--linha)}
+.logo{font-weight:700;font-size:1.25rem;letter-spacing:-.02em}
+.carrinho{font-size:.95rem;font-weight:600}
+.carrinho span{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;margin-left:4px;border-radius:11px;background:var(--principal);color:var(--fundo);font-size:.8rem}
+
+.container{max-width:1100px;margin:0 auto;padding:24px 16px 48px}
+.slogan{color:var(--cinza);margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr);gap:24px}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}}
+
+.card{display:block}
+.foto{position:relative;aspect-ratio:3/4;border-radius:var(--raio);overflow:hidden;background:#e3e6e1}
+.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.sem-foto{width:100%;height:100%;display:grid;place-items:center;font-size:3rem;font-weight:700;color:var(--cinza)}
+.selos{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.selo{padding:3px 9px;border-radius:999px;font-size:.75rem;font-weight:600;background:var(--fundo);color:var(--texto)}
+.selo.alerta{background:var(--destaque);color:#fff}
+.selo.esgotado{background:var(--texto);color:#fff}
+.card.esgotado .foto img,.card.esgotado .sem-foto{opacity:.55}
+.nome{margin-top:10px;font-size:.95rem;font-weight:600}
+.tipo{font-size:.8rem;color:var(--cinza)}
+.preco{margin-top:2px;font-weight:700}
+.preco s{color:var(--cinza);font-weight:400;margin-right:6px}
+.preco .promo{color:var(--destaque)}
+
+.skeleton{aspect-ratio:3/4;border-radius:var(--raio);background:linear-gradient(90deg,#e3e6e1 25%,#eceee9 50%,#e3e6e1 75%);background-size:200% 100%;animation:brilho 1.4s infinite}
+@keyframes brilho{to{background-position:-200% 0}}
+@media(prefers-reduced-motion:reduce){.skeleton{animation:none}}
+
+.mensagem{grid-column:1/-1;text-align:center;padding:48px 16px}
+.mensagem button{margin-top:12px;padding:10px 20px;border:0;border-radius:var(--raio);background:var(--principal);color:var(--fundo);font:inherit;font-weight:600;cursor:pointer}
+.rodape{padding:24px 16px;text-align:center;font-size:.85rem;color:var(--cinza);border-top:1px solid var(--linha)}
+
+/* ===== Fase 2: filtros e página do produto ===== */
+.filtros{display:grid;gap:12px;margin-bottom:24px}
+#busca{width:100%;padding:12px 14px;border:1px solid var(--linha);border-radius:var(--raio);font:inherit;background:#fff;color:var(--texto)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px}
+.chip{flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--linha);border-radius:999px;background:transparent;color:var(--texto);font:inherit;font-size:.9rem;text-transform:capitalize;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--principal);border-color:var(--principal);color:var(--fundo)}
+
+.voltar{display:inline-block;padding:10px 0;margin-bottom:6px;font-size:.9rem;color:var(--cinza)}
+.produto{display:grid;gap:24px}
+/* No computador, a coluna da foto tem a largura certa para a foto (3:4) caber na altura da janela.
+   240px = espaço do cabeçalho, do "Voltar" e das miniaturas. Mínimo de 280px; máximo de 55% da página. */
+@media(min-width:800px){.produto{grid-template-columns:max(280px,min(55%,calc((100vh - 240px) * .75))) 1fr;gap:40px;align-items:start}}
+.galeria{min-width:0}
+.faixa{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:var(--raio);aspect-ratio:3/4;background:#e3e6e1;scrollbar-width:none}
+.faixa::-webkit-scrollbar{display:none}
+.faixa>*{flex:0 0 100%;scroll-snap-align:start;width:100%;height:100%;object-fit:cover}
+.minis{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.mini{width:64px;aspect-ratio:3/4;padding:0;border:2px solid transparent;border-radius:6px;overflow:hidden;background:none;cursor:pointer;opacity:.7}
+.mini img{width:100%;height:100%;object-fit:cover;display:block}
+.mini[aria-current="true"]{border-color:var(--destaque);opacity:1}
+.info h1{font-size:1.6rem;letter-spacing:-.02em;line-height:1.2}
+.info .preco{font-size:1.25rem;margin:10px 0 16px}
+.info .descricao{color:var(--cinza);max-width:60ch}
+
+/* ===== Fase 3: tamanhos e ações ===== */
+.rotulo{font-weight:600;margin-bottom:8px}
+.tamanhos{display:flex;flex-wrap:wrap;gap:8px}
+.tam{min-width:48px;min-height:44px;padding:10px 14px;border:1px solid var(--linha);border-radius:var(--raio);background:#fff;color:var(--texto);font:inherit;font-weight:600;cursor:pointer}
+.tam[aria-pressed="true"]{background:var(--principal);border-color:var(--principal);color:var(--fundo)}
+.tam:disabled{opacity:.45;text-decoration:line-through;cursor:not-allowed;background:transparent}
+.aviso-estoque{margin-top:12px;font-weight:600}
+.aviso-estoque.alerta{color:var(--destaque)}
+.dica{margin-top:12px;font-size:.9rem;color:var(--cinza)}
+.acoes{display:grid;gap:10px;margin-top:16px;max-width:380px}
+.btn{padding:14px 20px;border:0;border-radius:var(--raio);background:var(--principal);color:var(--fundo);font:inherit;font-weight:600;cursor:pointer}
+.btn.secundario{background:transparent;color:var(--texto);border:1px solid var(--principal)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.nota{margin-top:16px;font-size:.8rem;color:var(--cinza)}
+
+/* ===== Fase 4: carrinho ===== */
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.carrinho-titulo{font-size:1.6rem;letter-spacing:-.02em;line-height:1.2;margin-bottom:20px}
+.carrinho-titulo:focus{outline:none}
+.carrinho-layout{display:grid;gap:24px}
+@media(min-width:800px){.carrinho-layout{grid-template-columns:1.6fr 1fr;gap:40px;align-items:start}}
+
+.lista-carrinho{list-style:none;padding:0}
+.item-carrinho{display:grid;grid-template-columns:84px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--linha)}
+.item-carrinho:first-child{border-top:1px solid var(--linha)}
+.item-foto{aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:#e3e6e1}
+.item-foto img{width:100%;height:100%;object-fit:cover;display:block}
+.item-foto .sem-foto{font-size:1.5rem}
+.item-nome{display:block;font-weight:600}
+.item-nome:hover{text-decoration:underline}
+.item-info .tipo{margin-top:2px}
+.item-info .preco{font-size:.95rem}
+.item-linha{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 12px;margin-top:10px}
+.subtotal{font-weight:700}
+
+.qtd{display:inline-flex;align-items:center;border:1px solid var(--linha);border-radius:var(--raio);background:#fff}
+.qtd button{width:44px;height:44px;border:0;border-radius:var(--raio);background:transparent;color:var(--texto);font:inherit;font-size:1.2rem;font-weight:600;cursor:pointer}
+.qtd button:disabled{opacity:.35;cursor:not-allowed}
+.qtd output{min-width:32px;text-align:center;font-weight:600}
+.remover{min-height:44px;padding:0 4px;border:0;background:none;color:var(--cinza);font:inherit;font-size:.9rem;text-decoration:underline;cursor:pointer}
+
+/* Item com problema: foto apagada, selo escuro e motivo escrito */
+.item-carrinho.problema .item-foto img,.item-carrinho.problema .sem-foto{opacity:.5}
+.problema-aviso{margin-top:8px;font-size:.9rem}
+.problema-aviso .selo{display:inline-block;margin-right:6px;background:var(--texto);color:#fff}
+
+.resumo{display:grid;gap:12px;padding:20px;border:1px solid var(--linha);border-radius:var(--raio);background:#fff}
+@media(min-width:800px){.resumo{position:sticky;top:80px}}
+.resumo-linha{display:flex;justify-content:space-between;gap:12px}
+.resumo-total{padding-top:12px;border-top:1px solid var(--linha);font-size:1.25rem;font-weight:700}
+.resumo .nota{margin-top:0}
+a.btn{display:block;text-align:center}
+.mensagem a.btn{display:inline-block;margin-top:12px}
+
+/* ===== Fase 5: acabamento (acessibilidade e responsivo) ===== */
+/* Quando algo recebe foco, não fica escondido atrás do cabeçalho fixo */
+html{scroll-padding-top:76px}
+main:focus{outline:none}
+
+/* Link "Pular para o conteúdo": só aparece quando recebe foco pelo teclado */
+.pular{position:absolute;left:12px;top:-60px;z-index:10;padding:12px 16px;border-radius:var(--raio);background:var(--principal);color:var(--fundo);font-weight:600}
+.pular:focus{top:12px}
+
+/* Cabeçalho em telas pequenas: nome de loja longo não empurra o carrinho para fora */
+.topo{gap:12px}
+.logo{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.carrinho{flex:0 0 auto;white-space:nowrap;padding:10px 0}
+
+/* Carrinho: foto maior quando há espaço */
+@media(min-width:600px){.item-carrinho{grid-template-columns:110px 1fr}}
